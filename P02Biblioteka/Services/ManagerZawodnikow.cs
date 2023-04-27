@@ -1,13 +1,10 @@
 ﻿using P02Biblioteka.Domain;
-using P04PolaczenieZBaza;
+using P02PolaczenieZBaza;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlTypes;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace P02Biblioteka.Services
 {
@@ -28,7 +25,7 @@ namespace P02Biblioteka.Services
             foreach (var z in zawodnicyCache)
             {
                 string wiersz = string.Format(szablon,
-                    z.Id_zawodnika, z.Id_trenera, z.Imie, z.Nazwisko, z.Kraj, z.DataUrodzenia.ToString("yyyy-MM-dd"), z.Wzrost, z.Waga);
+                    z.Id_zawodnika, z.Id_trenera, z.Imie, z.Nazwisko, z.Kraj, z.DataUrodzenia == null? "null" : z.DataUrodzenia.Value.ToString("yyyy-MM-dd"), z.Wzrost, z.Waga);
                 sb.AppendLine(wiersz);
             }
             File.WriteAllText(url, sb.ToString(), Encoding.UTF8);
@@ -128,13 +125,13 @@ namespace P02Biblioteka.Services
                                 imie = '{0}', 
                                 nazwisko = '{1}',
                                 kraj='{2}',
-                                data_ur = '{3}',  
+                                data_ur = {3},  
                                 wzrost = {4},
                                 waga = {5}
                                 where id_zawodnika = {6}";
 
             string sql = string.Format(szablon,
-                w.Imie, w.Nazwisko, w.Kraj, w.DataUrodzenia.ToString("yyyyMMdd"), w.Wzrost, w.Waga, w.Id_zawodnika);
+                w.Imie, w.Nazwisko, w.Kraj, w.DataUrodzenia == null? "null": $"'{ w.DataUrodzenia.Value.ToString("yyyyMMdd")}'", w.Wzrost, w.Waga, w.Id_zawodnika);
 
             pzb.WyslijPolecenieSQL(sql);
             WczytajZawodnikow();
@@ -144,11 +141,11 @@ namespace P02Biblioteka.Services
         {
             PolaczenieZBaza pzb = new PolaczenieZBaza();
 
-            string szablon = "insert into zawodnicy values ({0},'{1}','{2}','{3}','{4}',{5},{6})";
+            string szablon = "insert into zawodnicy values ({0},'{1}','{2}','{3}',{4},{5},{6})";
 
             string sql= string.Format(szablon,
                 w.Id_trenera == null ? "null" : w.Id_trenera.ToString(),
-                w.Imie, w.Nazwisko, w.Kraj, w.DataUrodzenia.ToString("yyyyMMdd"), w.Wzrost, w.Waga);
+                w.Imie, w.Nazwisko, w.Kraj, w.DataUrodzenia == null ? "null" : $"'{w.DataUrodzenia.Value.ToString("yyyyMMdd")}'", w.Wzrost, w.Waga);
 
             pzb.WyslijPolecenieSQL(sql);
             WczytajZawodnikow();

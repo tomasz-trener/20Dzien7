@@ -50,10 +50,6 @@
       <Project>{94c8dcd5-fddb-47f6-a92d-7ff7aa49e75c}</Project>
       <Name>P02PolaczenieZBaza</Name>
     </ProjectReference>
-    <ProjectReference Include="..\P04PolaczenieZBaza\P04PolaczenieZBaza.csproj">
-      <Project>{BDB931F4-27F6-4AF3-92B9-9681EF684D8E}</Project>
-      <Name>P04PolaczenieZBaza</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

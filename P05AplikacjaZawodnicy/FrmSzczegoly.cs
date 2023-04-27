@@ -62,6 +62,8 @@ namespace P05AplikacjaZawodnicy
                     if(!(c is Label))
                         c.Enabled = false;
                 
+
+
             }
 
 
@@ -75,6 +77,17 @@ namespace P05AplikacjaZawodnicy
                     kontrolka.BackColor = Color.Red;
             }
 
+            int p = 0;
+            foreach (var k in mz.PodajKraje())
+            {
+                RadioButton rb = new RadioButton();
+                rb.Name = "rbKraj_" + k;
+                rb.Text = k;
+                rb.Top = p;
+                p += 20;
+                pnlKraje.Controls.Add(rb);
+            }
+
         }
 
         // tryb edycji lub usuwania
@@ -83,7 +96,9 @@ namespace P05AplikacjaZawodnicy
             wyswietlany = zawodnik;
             txtImie.Text = wyswietlany.Imie;
             txtNazwisko.Text = wyswietlany.Nazwisko;
-            txtKraj.Text = wyswietlany.Kraj;
+         
+            //txtKraj.Text = wyswietlany.Kraj;
+           
             dtpDataUr.Value = wyswietlany.DataUrodzenia;
             numWaga.Value = wyswietlany.Waga;
             numWzrost.Value = wyswietlany.Wzrost;
@@ -112,7 +127,9 @@ namespace P05AplikacjaZawodnicy
         {
             wyswietlany.Imie = txtImie.Text;
             wyswietlany.Nazwisko = txtNazwisko.Text;
-            wyswietlany.Kraj = txtKraj.Text;
+         
+            //wyswietlany.Kraj = txtKraj.Text;
+           
             wyswietlany.DataUrodzenia = dtpDataUr.Value;
             wyswietlany.Waga = Convert.ToInt32(numWaga.Value);
             wyswietlany.Wzrost = Convert.ToInt32(numWzrost.Value);

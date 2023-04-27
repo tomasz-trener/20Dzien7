@@ -33,16 +33,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNazwisko = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtKraj = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.dtpDataUr = new System.Windows.Forms.DateTimePicker();
             this.numWaga = new System.Windows.Forms.NumericUpDown();
             this.numWzrost = new System.Windows.Forms.NumericUpDown();
             this.btnZapisz = new System.Windows.Forms.Button();
             this.btnUsun = new System.Windows.Forms.Button();
             this.pnlKontrolkiDoEdycji = new System.Windows.Forms.Panel();
+            this.dtpDataUr = new P01AplikacjaZawodnicy.CustomDateTimePicker();
+            this.pnlKraje = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.numWaga)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numWzrost)).BeginInit();
             this.pnlKontrolkiDoEdycji.SuspendLayout();
@@ -89,18 +89,10 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Kraj";
             // 
-            // txtKraj
-            // 
-            this.txtKraj.Location = new System.Drawing.Point(14, 117);
-            this.txtKraj.Name = "txtKraj";
-            this.txtKraj.Size = new System.Drawing.Size(175, 20);
-            this.txtKraj.TabIndex = 4;
-            this.txtKraj.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtKraj_KeyDown);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 147);
+            this.label4.Location = new System.Drawing.Point(14, 274);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 13);
             this.label4.TabIndex = 7;
@@ -109,7 +101,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(14, 198);
+            this.label5.Location = new System.Drawing.Point(14, 314);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(36, 13);
             this.label5.TabIndex = 9;
@@ -118,30 +110,22 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 248);
+            this.label6.Location = new System.Drawing.Point(14, 364);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 13);
             this.label6.TabIndex = 11;
             this.label6.Text = "Wzrost";
             // 
-            // dtpDataUr
-            // 
-            this.dtpDataUr.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDataUr.Location = new System.Drawing.Point(14, 171);
-            this.dtpDataUr.Name = "dtpDataUr";
-            this.dtpDataUr.Size = new System.Drawing.Size(175, 20);
-            this.dtpDataUr.TabIndex = 12;
-            // 
             // numWaga
             // 
-            this.numWaga.Location = new System.Drawing.Point(17, 219);
+            this.numWaga.Location = new System.Drawing.Point(17, 335);
             this.numWaga.Name = "numWaga";
             this.numWaga.Size = new System.Drawing.Size(172, 20);
             this.numWaga.TabIndex = 13;
             // 
             // numWzrost
             // 
-            this.numWzrost.Location = new System.Drawing.Point(14, 266);
+            this.numWzrost.Location = new System.Drawing.Point(14, 382);
             this.numWzrost.Maximum = new decimal(new int[] {
             300,
             0,
@@ -153,7 +137,7 @@
             // 
             // btnZapisz
             // 
-            this.btnZapisz.Location = new System.Drawing.Point(112, 326);
+            this.btnZapisz.Location = new System.Drawing.Point(126, 449);
             this.btnZapisz.Name = "btnZapisz";
             this.btnZapisz.Size = new System.Drawing.Size(75, 23);
             this.btnZapisz.TabIndex = 15;
@@ -164,7 +148,7 @@
             // 
             // btnUsun
             // 
-            this.btnUsun.Location = new System.Drawing.Point(12, 326);
+            this.btnUsun.Location = new System.Drawing.Point(26, 449);
             this.btnUsun.Name = "btnUsun";
             this.btnUsun.Size = new System.Drawing.Size(75, 23);
             this.btnUsun.TabIndex = 16;
@@ -175,28 +159,43 @@
             // 
             // pnlKontrolkiDoEdycji
             // 
+            this.pnlKontrolkiDoEdycji.Controls.Add(this.pnlKraje);
+            this.pnlKontrolkiDoEdycji.Controls.Add(this.dtpDataUr);
             this.pnlKontrolkiDoEdycji.Controls.Add(this.txtImie);
             this.pnlKontrolkiDoEdycji.Controls.Add(this.label1);
             this.pnlKontrolkiDoEdycji.Controls.Add(this.txtNazwisko);
             this.pnlKontrolkiDoEdycji.Controls.Add(this.numWzrost);
             this.pnlKontrolkiDoEdycji.Controls.Add(this.label2);
             this.pnlKontrolkiDoEdycji.Controls.Add(this.numWaga);
-            this.pnlKontrolkiDoEdycji.Controls.Add(this.txtKraj);
-            this.pnlKontrolkiDoEdycji.Controls.Add(this.dtpDataUr);
             this.pnlKontrolkiDoEdycji.Controls.Add(this.label3);
             this.pnlKontrolkiDoEdycji.Controls.Add(this.label6);
             this.pnlKontrolkiDoEdycji.Controls.Add(this.label4);
             this.pnlKontrolkiDoEdycji.Controls.Add(this.label5);
             this.pnlKontrolkiDoEdycji.Location = new System.Drawing.Point(12, 24);
             this.pnlKontrolkiDoEdycji.Name = "pnlKontrolkiDoEdycji";
-            this.pnlKontrolkiDoEdycji.Size = new System.Drawing.Size(204, 296);
+            this.pnlKontrolkiDoEdycji.Size = new System.Drawing.Size(204, 419);
             this.pnlKontrolkiDoEdycji.TabIndex = 17;
+            // 
+            // dtpDataUr
+            // 
+            this.dtpDataUr.Location = new System.Drawing.Point(14, 290);
+            this.dtpDataUr.Name = "dtpDataUr";
+            this.dtpDataUr.Size = new System.Drawing.Size(175, 21);
+            this.dtpDataUr.TabIndex = 15;
+            this.dtpDataUr.Value = new System.DateTime(2023, 4, 27, 14, 53, 29, 568);
+            // 
+            // pnlKraje
+            // 
+            this.pnlKraje.Location = new System.Drawing.Point(14, 127);
+            this.pnlKraje.Name = "pnlKraje";
+            this.pnlKraje.Size = new System.Drawing.Size(182, 144);
+            this.pnlKraje.TabIndex = 16;
             // 
             // FrmSzczegoly
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(248, 364);
+            this.ClientSize = new System.Drawing.Size(248, 501);
             this.Controls.Add(this.pnlKontrolkiDoEdycji);
             this.Controls.Add(this.btnUsun);
             this.Controls.Add(this.btnZapisz);
@@ -217,15 +216,15 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNazwisko;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtKraj;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker dtpDataUr;
         private System.Windows.Forms.NumericUpDown numWaga;
         private System.Windows.Forms.NumericUpDown numWzrost;
         private System.Windows.Forms.Button btnZapisz;
         private System.Windows.Forms.Button btnUsun;
         private System.Windows.Forms.Panel pnlKontrolkiDoEdycji;
+        private P01AplikacjaZawodnicy.CustomDateTimePicker dtpDataUr;
+        private System.Windows.Forms.Panel pnlKraje;
     }
 }

@@ -14,7 +14,7 @@ namespace P02Biblioteka.Domain
         public string Imie { get; set; }
         public string Nazwisko { get; set; }
         public string Kraj { get; set; }
-        public DateTime DataUrodzenia { get; set; }
+        public DateTime? DataUrodzenia { get; set; }
         public int Wzrost { get; set; }
         public int Waga { get; set; }
 
@@ -26,7 +26,7 @@ namespace P02Biblioteka.Domain
             }
         }
 
-        public string DataSformatowana => DataUrodzenia.ToString("yyyy-MM-dd");
+        public string DataSformatowana => DataUrodzenia?.ToString("yyyy-MM-dd");
 
         public string DaneRaportowe => $"{ImieNazwiskoKraj} {DataSformatowana}";
     }
