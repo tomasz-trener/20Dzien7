@@ -86,6 +86,7 @@ namespace P05AplikacjaZawodnicy
                 rb.Top = p;
                 p += 20;
                 pnlKraje.Controls.Add(rb);
+                
             }
 
         }
@@ -97,6 +98,12 @@ namespace P05AplikacjaZawodnicy
             txtImie.Text = wyswietlany.Imie;
             txtNazwisko.Text = wyswietlany.Nazwisko;
          
+            foreach (Control k in pnlKraje.Controls)
+            {
+                if(k.Text == wyswietlany.Kraj)
+                    ((RadioButton)k).Checked = true;
+            }
+
             //txtKraj.Text = wyswietlany.Kraj;
            
             dtpDataUr.Value = wyswietlany.DataUrodzenia;
@@ -127,9 +134,17 @@ namespace P05AplikacjaZawodnicy
         {
             wyswietlany.Imie = txtImie.Text;
             wyswietlany.Nazwisko = txtNazwisko.Text;
-         
+
+            foreach (RadioButton k in pnlKraje.Controls)
+            {
+                if (k.Checked)
+                {
+                    wyswietlany.Kraj = k.Text;
+                    break;
+                }
+            }
             //wyswietlany.Kraj = txtKraj.Text;
-           
+
             wyswietlany.DataUrodzenia = dtpDataUr.Value;
             wyswietlany.Waga = Convert.ToInt32(numWaga.Value);
             wyswietlany.Wzrost = Convert.ToInt32(numWzrost.Value);
