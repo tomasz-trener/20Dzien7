@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,12 @@ namespace P06Interfejsy
     {
         public string Firma;
         public int Waga;
+
+
+        public void UstawFirme(string Firma)
+        {
+            this.Firma = Firma;
+        }
 
         public object Clone()
         {
